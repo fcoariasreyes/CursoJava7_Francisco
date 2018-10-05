@@ -1,34 +1,23 @@
 package cl.clubhipico.clubhipico_francisco.object;
 
-public class JineteObject {
+public class JineteObject extends PersonaObject{
 
-	private String nombre;
-	private double peso;
-	private int rut;
-	private char dv;
-	public String getNombre() {
-		return nombre;
+	private CaballoObject caballo;
+
+	public CaballoObject getCaballo() {
+		return caballo;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+
+	public void setCaballo(CaballoObject caballo) {
+		this.caballo = caballo;
 	}
-	public double getPeso() {
-		return peso;
+
+	@Override
+	public String toString() {
+		return "JineteObject [caballo=" + caballo + "]";
 	}
-	public void setPeso(double peso) {
-		this.peso = peso;
-	}
-	public int getRut() {
-		return rut;
-	}
-	public void setRut(int rut) {
-		this.rut = rut;
-	}
-	public char getDv() {
-		return dv;
-	}
-	public void setDv(char dv) {
-		this.dv = dv;
-	}
+	
+	
+	
 	
 }
