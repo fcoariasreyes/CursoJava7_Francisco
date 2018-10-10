@@ -36,8 +36,6 @@ public class ClubHipicoUtilNoStatic {
 				System.out.println("El primer jinete tiene que ser de sexo Masculino...");
 			}
 			
-			
-			
 		}else {
 			System.out.println("La cantidad de jinetes y caballos no coincide...");
 		}
