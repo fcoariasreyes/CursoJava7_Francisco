@@ -8,18 +8,29 @@ import cl.clubhipico.clubhipico_francisco.object.enums.SexoEnum;
 /*Clase utilitario con metodos static*/
 public class ClubHipicoUtilNoStatic {
 
-	public  void montar(JineteObject jinete, CaballoObject caballo) {
+	private String tipoMontar = "Clasico";
+	public static String tipoMJinete= "Jinete Clasico";
+
+	public static  void montar(JineteObject jinete, CaballoObject caballo) {
 		jinete.setCaballo(caballo);
 		System.out.println("Jinete "+jinete.getNombre()+ " se monta en caballo "+ caballo.getNombre());
+		
+		tipoMJinete="DDCDSCDS"; //PERMITIDO, entre static se entienden. 
+		//tipoMontar="";//NO PERMITIDO, ya que de un metodo estatico no puedo invocar directamente a una propiedad estatica, ya que el metodo estatico no pertenece a la instancia.
 	}
 	
 	/*Existe una sobrecarga de metodo con respecto al montar Jinete*/
 	public  void montar(PersonaObject persona, CaballoObject caballo) {
 		System.out.println("Persona "+persona.getNombre()+ " NO se puede montar en caballo "+ caballo.getNombre());
+		tipoMontar=""; //PERMITIDO, ya que llamo a una variable global dentro de la misma intancia.
+		tipoMJinete="DDCDSCDS"; //Cambia a todas las clases el valor.
+
 	}
 	
 	/*Existe una sobrecarga del metodo montar, recibiendo arreglos de jinetes y caballos*/
 	public  void montar(JineteObject[] jinetes, CaballoObject[] caballos) {
+
+		tipoMJinete="DDCDSCDS"; //Cambia a todas las clases el valor.
 
 		//Validacion
 		//Condicional if
@@ -36,13 +47,10 @@ public class ClubHipicoUtilNoStatic {
 				System.out.println("El primer jinete tiene que ser de sexo Masculino...");
 			}
 			
+			
 		}else {
 			System.out.println("La cantidad de jinetes y caballos no coincide...");
 		}
-		
-		
-		
-		
 		
 	}
 	

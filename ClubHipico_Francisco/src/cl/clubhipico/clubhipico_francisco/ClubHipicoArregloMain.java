@@ -36,15 +36,28 @@ public class ClubHipicoArregloMain {
 		jinetesArray[1].setNombre("Juanito");
 		jinetesArray[2].setNombre("Pedrito");
 		
-		jinetesArray[0].setSexo(SexoEnum.FEMININO);
-		
+		jinetesArray[0].setSexo(SexoEnum.MASCULINO);
+		jinetesArray[1].setSexo(SexoEnum.FEMININO);
+		jinetesArray[2].setSexo(SexoEnum.FEMININO);
+
 		//Otra forma de instanciar el arreglo
 		CaballoObject[] caballosArray = {caballo, caballo, caballo};
 		
 		ClubHipicoUtil.montar(jinetesArray, caballosArray);
 		
+
+		/*System.out.println("Valor tipoJinete ClubHipicoUtilNoStatic: "+ ClubHipicoUtilNoStatic.tipoMJinete);;
+		
 		ClubHipicoUtilNoStatic util = new ClubHipicoUtilNoStatic();
-		util.montar(jinetesArray, caballosArray);
+		util.montar(jinetesArray, caballosArray); 
+		
+		ClubHipicoUtilNoStatic util2 = new ClubHipicoUtilNoStatic();
+		
+		
+		System.out.println("Valor tipoJinete ClubHipicoUtilNoStatic: "+ ClubHipicoUtilNoStatic.tipoMJinete);;
+		System.out.println("Valor tipoJinete util: "+ util.tipoMJinete);;
+		System.out.println("Valor tipoJinete util2: "+ util2.tipoMJinete);;
+		 */
 		
 	}
 }
