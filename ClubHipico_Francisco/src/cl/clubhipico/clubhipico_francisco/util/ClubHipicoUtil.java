@@ -53,6 +53,7 @@ public class ClubHipicoUtil {
 			System.out.println("Opcion 2 FOR - Foreach "); //Saldo de linea en blanco
 			
 			int i = 0 ;
+			
 			//FOR ([OBJECTO NUEVO] : [ARREGLO])
 			for (JineteObject jinete : jinetes) {
 				
@@ -65,7 +66,40 @@ public class ClubHipicoUtil {
 				i++;
 			}
 			
+			//WHILE
+			System.out.println(); //Saldo de linea en blanco
+			System.out.println("Opcion 3 WHILE"); //Saldo de linea en blanco
 			
+			i=0; //Ya existe y la vuelvo a iniciar en 0.
+			//SIEMPRE se tiene que cumplir la condicion para ejecutarse
+			while (i<jinetes.length) {
+				System.out.println("Sexo Jinete "+(i+1)+" : "+jinetes[i].getSexo());
+			
+				if (jinetes[i].getSexo()==SexoEnum.FEMININO) {
+
+					System.out.println("Esta carrera es para jinetes Masculinos");
+				}
+				
+				i++;
+			}
+
+			//DO  WHILE
+			System.out.println(); //Saldo de linea en blanco
+			System.out.println("Opcion 4 DO - WHILE"); //Saldo de linea en blanco
+			
+			i=0; //Ya existe y la vuelvo a iniciar en 0.
+			//AL MENOS se ejecuta en una oportunidad
+			do{
+				System.out.println("Sexo Jinete "+(i+1)+" : "+jinetes[i].getSexo());
+			
+				if (jinetes[i].getSexo()==SexoEnum.FEMININO) {
+
+					System.out.println("Esta carrera es para jinetes Masculinos");
+				}
+				
+				i++;
+			}while (i<jinetes.length);
+
 			
 		}else {
 			System.out.println("La cantidad de jinetes y caballos no coincide...");
