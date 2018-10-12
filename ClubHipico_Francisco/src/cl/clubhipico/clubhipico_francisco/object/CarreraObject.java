@@ -80,6 +80,13 @@ public class CarreraObject {
 	public void setApostador(ApostadorObject apostador) {
 		this.apostador = apostador;
 	}
+
+	@Override
+	public String toString() {
+		return "CarreraObject [nombre=" + nombre + ", distancia=" + distancia + ", pista=" + pista + ", caballo1="
+				+ caballo1 + ", caballo2=" + caballo2 + ", caballo3=" + caballo3 + ", tipoApuesta=" + tipoApuesta
+				+ ", apostador=" + apostador + "]";
+	}
 	
 	
 	
