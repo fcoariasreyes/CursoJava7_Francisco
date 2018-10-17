@@ -12,24 +12,6 @@ import java.util.List;
 
 
 public class DocumentoCSV {
-
-	
-	public static String imputStreamToString(InputStreamReader is) throws IOException {
-		final int bufferSize = 1024;
-		final char[] buffer = new char[bufferSize];
-		final StringBuilder out = new StringBuilder();
-		Reader in = is;
-		for (; ; ) {
-		    int rsz = in.read(buffer, 0, buffer.length);
-		    if (rsz < 0)
-		        break;
-		    out.append(buffer, 0, rsz);
-		}
-		return out.toString();
-	}
-	
-	
-
 	
 	public static List<HashMap<String,Object>> readFile(String pathFile, String[] nombreColumnas) throws FileNotFoundException{
 		String csvFile = pathFile;
