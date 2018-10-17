@@ -55,6 +55,7 @@ public class ClubHipicoUtil {
 			int i = 0 ;
 			
 			//FOR ([OBJECTO NUEVO] : [ARREGLO])
+			
 			for (JineteObject jinete : jinetes) {
 				
 				System.out.println("Sexo Jinete "+(i+1)+" : "+jinete.getSexo());
@@ -70,7 +71,7 @@ public class ClubHipicoUtil {
 			System.out.println(); //Saldo de linea en blanco
 			System.out.println("Opcion 3 WHILE"); //Saldo de linea en blanco
 			
-			i=0; //Ya existe y la vuelvo a iniciar en 0.
+		    i=0; //Ya existe y la vuelvo a iniciar en 0.
 			//SIEMPRE se tiene que cumplir la condicion para ejecutarse
 			while (i<jinetes.length) {
 				System.out.println("Sexo Jinete "+(i+1)+" : "+jinetes[i].getSexo());

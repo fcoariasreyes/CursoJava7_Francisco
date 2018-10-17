@@ -28,11 +28,20 @@ public class ClubHipicoDataBaseMain {
         //accion de insertar
         carreraController.insert(carrera);
         
-        
+        if (carreraController==null ^ carrera==null) {
+        	
+        }
         
         System.out.println("Carrera recibida "+carrera);
         
 		
+        for (int i = 0; i<10; i++) {
+        
+        }
+        
+        
+       
+        
         
 		
 	}
