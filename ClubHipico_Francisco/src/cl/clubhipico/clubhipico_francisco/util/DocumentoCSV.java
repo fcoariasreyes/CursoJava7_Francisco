@@ -13,45 +13,45 @@ import java.util.List;
 
 public class DocumentoCSV {
 	
-	public static List<HashMap<String,Object>> readFile(String pathFile, String[] nombreColumnas) throws FileNotFoundException{
+	public static List<HashMap<String,Object>> readFile(String pathFile, String[] nombreColumnas, boolean poseeTitulo) throws IOException{
 		String csvFile = pathFile;
 		String line = "";
 		String cvsSplitBy = ";";
 		List<HashMap<String,Object>> listaArhivo = new ArrayList<HashMap<String,Object>> ();
 
-		try {
-				
-			BufferedReader br = new BufferedReader(new FileReader(csvFile)); 
-			while ((line = br.readLine()) != null) {
-				// use comma como separador
-				String[] values = line.split(cvsSplitBy);
+		BufferedReader br = new BufferedReader(new FileReader(csvFile)); 
+		int i=0;
+		while ((line = br.readLine()) != null) {
+			
+			// use comma como separador
+			String[] values = line.split(cvsSplitBy);
 
-				//se debe obtener registro para dejarlo en lista de hashMap
-				HashMap<String,Object> hm = new HashMap<String,Object>();
+			//se debe obtener registro para dejarlo en lista de hashMap
+			HashMap<String,Object> hm = new HashMap<String,Object>();
 
-				for (int j=0; j< nombreColumnas.length && j<values.length; j++){
+			for (int j=0; j< nombreColumnas.length && j<values.length; j++){
 
-					@SuppressWarnings("unused")
-					Object valor = values[j];
-					
-					if (ValidateType.isNumber(values[j])){
-						values[j] = values[j].replaceAll("\"", "");
-						valor = values[j];
-						hm.put(nombreColumnas[j], Integer.valueOf(values[j]));
-					}else{
-						values[j] = values[j].replaceAll("\"", "");
-						valor = values[j];
-						hm.put(nombreColumnas[j], String.valueOf(values[j]));
-					}
-						
+				if (ValidateType.isNumber(values[j])){
+					values[j] = values[j].replaceAll("\"", "");
+					hm.put(nombreColumnas[j], Integer.valueOf(values[j]));
+				}else{
+					values[j] = values[j].replaceAll("\"", "");
+					hm.put(nombreColumnas[j], String.valueOf(values[j]));
 				}
-				listaArhivo.add(hm);				
+					
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
+			
+			if ((!poseeTitulo && i==0) || i>0)
+				listaArhivo.add(hm);	
+			
+			i++;
 		}
+	
 		return listaArhivo;
+	}
+	
+	public static List<HashMap<String,Object>> readFile(String pathFile, String[] nombreColumnas) throws IOException{
+		return readFile(pathFile, nombreColumnas, false);
 	}
 	
 }

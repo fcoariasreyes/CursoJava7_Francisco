@@ -8,7 +8,7 @@ import java.io.IOException;
 
 import cl.clubhipico.clubhipico_francisco.object.CaballoObject;
 
-public class ClubHipicoFileMain {
+public class ClubHipicoExceptionMain {
 
 	
 	public static void crearArchivo(String path) {
