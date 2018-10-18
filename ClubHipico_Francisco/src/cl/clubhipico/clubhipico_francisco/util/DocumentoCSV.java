@@ -1,8 +1,10 @@
 package cl.clubhipico.clubhipico_francisco.util;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -52,6 +54,20 @@ public class DocumentoCSV {
 	
 	public static List<HashMap<String,Object>> readFile(String pathFile, String[] nombreColumnas) throws IOException{
 		return readFile(pathFile, nombreColumnas, false);
+	}
+	
+	
+	public static void writteFile(String pathFile, List<HashMap<String,Object>> lista, boolean poseeTitulo) throws IOException{
+		String csvFile = pathFile;
+		String line = "";
+		String cvsSplitBy = ";";
+		List<HashMap<String,Object>> listaArhivo = new ArrayList<HashMap<String,Object>> ();
+		String[] keys;
+		
+		BufferedWriter bw = new BufferedWriter(new FileWriter(csvFile)); 
+		
+		
+		bw.close();
 	}
 	
 }
