@@ -1,54 +1,44 @@
 package cl.clubhipico.clubhipico_francisco.util;
 
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-import cl.clubhipico.clubhipico_francisco.controller.BaseController;
 
-public class DataBaseUtil<T> implements BaseController<T> {
+public class DataBaseUtil<T> {
 
-	@Override
-	public boolean insert(T object) {
-		// TODO Auto-generated method stub
-		System.out.println("Insert "+object);
-		return true;
-	}
+	private String JDBC_DRIVER = "org.mariadb.jdbc.Driver";
+    private String DB_URL = "jdbc:mariadb://localhost:3306/CursoJava7";
+    private Connection conn = null;
+    private Statement stmt = null;
+    
+    public DataBaseUtil() throws ClassNotFoundException, SQLException {
+    	    //STEP 2: Register JDBC driver
+            Class.forName(this.JDBC_DRIVER);
 
-	@Override
-	public boolean update(T object) {
-		// TODO Auto-generated method stub
-		System.out.println("Update "+object);
-		return true;	
-	}
+            //STEP 3: Open a connection
+            System.out.println("Conectando a la batos...");
+            conn = DriverManager.getConnection(this.DB_URL, "root", "");
+            System.out.println("Coneccion exitosa...");
 
-	@Override
-	public boolean delete(T object) {
-		// TODO Auto-generated method stub
-		System.out.println("Delete "+object);
-		return true;	}
-
-	@Override
-	public T select(T object) {
-		// TODO Auto-generated method stub
-		System.out.println("Select "+object);
-		return null;
-	}
-
-	@Override
-	public List<T> list(T object) {
-		// TODO Auto-generated method stub
-		System.out.println("List "+object);
-
-		return null;
-	}
-
-	@Override
-	public List<T> list() {
-		// TODO Auto-generated method stub
-		System.out.println("List ");
-		return null;
+            //STEP 4: Execute a query
+            stmt = conn.createStatement();
+        
+    }
+    
+	
+	public void executarQuery(String sql) throws SQLException {
+		stmt.executeUpdate(sql);
 	}
 	
-	
+	public ResultSet select(String query) throws SQLException {
+		return stmt.executeQuery(query);
+	}
+	public void close() throws SQLException {
+		conn.close();
+	}
 	 
 	
 
