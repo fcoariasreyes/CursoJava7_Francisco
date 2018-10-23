@@ -6,7 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 
-import cl.clubhipico.clubhipico_francisco.object.CaballoObject;
 import cl.clubhipico.clubhipico_francisco.util.DocumentoCSV;
 
 public class ClubhipicoFileMain {
